@@ -1,64 +1,46 @@
-/* fonts */
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
-
 :root {
-  --cards-bg: rgb(255, 255, 255);
-  --cards-text: rgb(90, 90, 90);
-  --cards-text-bg: rgb(173, 173, 173);
-  --header-bg: rgb(241, 241, 241);
-  --header-text: rgb(201, 199, 199);
-  --main-bg: rgb(236, 236, 236);
-  --footer-text: rgb(0, 0, 0);
-  --footer-bg: rgb(0, 0, 0);
 }
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Ubuntu", sans-serif;
 }
-
+body {
+  background-color: black;
+  background: url("../img/planets/stars.jpg") center no-repeat;
+  background-size: 100% 100%;
+  animation-name: shimmer;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-direction: normal;
+  animation-play-state: running;
+  animation-duration: 5s;
+}
 header {
   padding-top: 5px;
   display: block;
-  background-color: var(--header-bg);
-  color: var(--header-text);
   height: 80px;
   position: relative;
   box-shadow: 0 5px 100px 0 rgb(0 0 0 /30%);
-  border-radius: 0 0 20px 20px;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: azure;
 }
 h1 {
-  /*text-shadow: 10px 10px 10px red;*/
   font-size: 30px;
   line-height: 80px;
 }
 
 main {
-  background-color: var(--main-bg);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.849) 0%,
-    rgba(9, 0, 0, 0.2) 20%,
-    rgba(255, 255, 255, 0.199) 100%
-  );
   min-height: calc(100vh - 175px);
   padding-top: 50px;
 }
 
-section.catalog {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
 footer {
-  border-radius: 20px 20px 0 0;
   font-size: 20px;
-  background-color: orange;
+  background-color: rgba(228, 176, 32, 0.2);
+  color: rgba(255, 255, 255, 0.6);
   height: 40px;
 }
 footer p {
@@ -68,44 +50,98 @@ footer p {
 .center {
   text-align: center;
 }
-
-section.catalog figure {
-  background-color: var(--cards-bg);
-  flex: 0 0 30%;
-  overflow: hidden;
-  border-radius: 20px;
-  transition: 0.5s;
-}
-
-section.catalog figure img {
-  background-color: white;
+.galaxy > a {
   position: relative;
-  z-index: 10;
-  width: 100%;
-  height: calc(100% - 40px);
-  border-radius: 20px;
+  display: block;
+  left: -40px;
+  top: 50%;
 }
 
-section.catalog figure figcaption {
-  text-align: center;
-  font-size: 30px;
+.sun {
+  border: 1px solid yellow;
+  width: 500px;
+  height: 500px;
+  transform: translate(-250px, 0);
+  background-image: url(../img/planets/sun.png);
+  background-size: cover;
+}
+.mercury {
+  border: 1px solid grey;
+  width: 30px;
+  height: 30px;
+  transform: translate(300px, -300px);
+  background-image: url(../img/planets/mercury.jpg);
+  background-size: cover;
+}
+.venus {
+  border: 1px solid orange;
+  width: 40px;
   height: 40px;
-  background-color: var(--cards-text-bg);
-  color: var(--cards-text);
-  border-radius: 20px;
+  transform: translate(350px, -355px);
+  background-image: url(../img/planets/venus.jpg);
+  background-size: cover;
 }
 
-section.catalog figure:hover {
-  transform: translateY(-20px) scale(1.05);
-  box-shadow: 0 0 5px rgb(197, 197, 197);
+.earth {
+  border: 1px solid blue;
+  width: 45px;
+  height: 45px;
+  transform: translate(415px, -415px);
+  background-image: url(../img/planets/earth.jpg);
+  background-size: cover;
 }
 
-section.catalog figure:hover figcaption {
-  transform: translateY(-14px) scale(1.1);
-  font-size: 2em;
-  font-weight: bold;
-  padding-top: 10px;
-  font-size: 2.1em;
-  box-shadow: 0 0 5px rgb(197, 197, 197);
-  transition: 0.5s;
+.moon {
+  border: 1px solid grey;
+  width: 10px;
+  height: 10px;
+  transform: translate(440px, -480px);
+  background-image: url(../img/planets/moon.jpg);
+  background-size: cover;
+}
+.mars {
+  width: 30px;
+  height: 30px;
+  transform: translate(490px, -490px);
+  background-image: url(../img/planets/mars.jpg);
+  background-size: cover;
+}
+
+a {
+  border: 1px solid red;
+  border-radius: 50%;
+  transition: 1s;
+}
+
+.galaxy a:hover {
+  border: 1px solid white;
+  box-shadow: 0 0 30px yellow;
+  opacity: 0.5;
+}
+a:hover::after {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  right: 20px;
+  bottom: 50px;
+  min-width: auto;
+  min-height: auto;
+  background-color: slategray;
+  color: white;
+  font-size: 20px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  content: attr(planet);
+}
+
+@keyframes shimmer {
+  0% {
+    filter: contrast(1);
+  }
+  50% {
+    filter: contrast(1.2);
+  }
+  100% {
+    filter: contrast(1);
+  }
 }

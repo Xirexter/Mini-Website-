@@ -1,0 +1,111 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
+:root {
+  --cards-bg: rgb(255, 255, 255);
+  --cards-text: rgb(90, 90, 90);
+  --cards-text-bg: rgb(173, 173, 173);
+  --header-bg: rgb(241, 241, 241);
+  --header-text: rgb(201, 199, 199);
+  --main-bg: rgb(236, 236, 236);
+  --footer-text: rgb(0, 0, 0);
+  --footer-bg: rgb(0, 0, 0);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+
+header {
+  padding-top: 5px;
+  display: block;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  height: 80px;
+  position: relative;
+  box-shadow: 0 5px 100px 0 rgb(0 0 0 /30%);
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+}
+h1 {
+  /*text-shadow: 10px 10px 10px red;*/
+  font-size: 30px;
+  line-height: 80px;
+}
+
+main {
+  background-color: var(--main-bg);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.849) 0%,
+    rgba(9, 0, 0, 0.2) 20%,
+    rgba(255, 255, 255, 0.199) 100%
+  );
+  min-height: calc(100vh - 175px);
+  padding-top: 50px;
+}
+
+section.catalog {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+footer {
+  border-radius: 20px 20px 0 0;
+  font-size: 20px;
+  background-color: orange;
+  height: 40px;
+}
+footer p {
+  line-height: 40px;
+}
+
+.center {
+  text-align: center;
+}
+
+section.catalog figure {
+  background-color: var(--cards-bg);
+  flex: 0 0 30%;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+section.catalog figure img {
+  background-color: white;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: calc(100% - 40px);
+  border-radius: 20px;
+}
+
+section.catalog figure figcaption {
+  text-align: center;
+  font-size: 30px;
+  height: 40px;
+  background-color: var(--cards-text-bg);
+  color: var(--cards-text);
+  border-radius: 20px;
+}
+
+section.catalog figure:hover {
+  transform: translateY(-20px) scale(1.05);
+  box-shadow: 0 0 5px rgb(197, 197, 197);
+}
+
+section.catalog figure:hover figcaption {
+  transform: translateY(-14px) scale(1.1);
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: 10px;
+  font-size: 2.1em;
+  box-shadow: 0 0 5px rgb(197, 197, 197);
+  transition: 0.5s;
+}
